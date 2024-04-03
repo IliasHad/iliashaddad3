@@ -11,7 +11,7 @@ const navigation = [
     links: [
       { title: 'About', href: '/about' },
       { title: 'Blog', href: '/blog' },
-      { title: 'Contact me', href: '/contact' },
+      { title: 'Contact', href: '/contact' },
     ],
   },
   {
@@ -65,11 +65,10 @@ function NewsletterForm() {
   return (
     <form className="max-w-sm">
       <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
-        Sign up for our newsletter
+        Sign up for my newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Subscribe to get the latest design news, articles, resources and
-        inspiration.
+        Subscribe to receive new articles and updates directly in your inbox.
       </p>
       <div className="relative mt-6">
         <input

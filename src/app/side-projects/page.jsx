@@ -26,7 +26,7 @@ function Projects({ projects }) {
                     <Image
                     src={project.featuredImage}
                     alt={project.title}
-                    objectFit="cover"
+                    objectFit="contain"
                     quality={100}
                     layout="responsive"
                     height={400}

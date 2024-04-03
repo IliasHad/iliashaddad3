@@ -7,6 +7,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { SocialMedia } from '@/components/SocialMedia'
+import { sendMail } from '@/app/contact'
 
 function TextInput({ label, ...props }) {
   let id = useId()
@@ -46,7 +47,7 @@ function RadioInput({ label, ...props }) {
 function ContactForm() {
   return (
     <FadeIn className="lg:order-last">
-      <form>
+      <form action={sendMail} className="space-y-8">
         <h2 className="font-display text-base font-semibold text-neutral-950">
           Work inquiries
         </h2>
@@ -57,14 +58,16 @@ function ContactForm() {
             type="email"
             name="email"
             autoComplete="email"
+            required
           />
           <TextInput
             label="Company"
             name="company"
             autoComplete="organization"
+            required
           />
           <TextInput label="Phone" type="tel" name="phone" autoComplete="tel" />
-          <TextInput label="Message" name="message" />
+          <TextInput label="Message" name="message"  required />
           <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
             <fieldset>
               <legend className="text-base/6 text-neutral-500">Budget</legend>
@@ -72,7 +75,11 @@ function ContactForm() {
                 <RadioInput label="Less than $25K" name="budget" value="0-25" />
                 <RadioInput label="$25K – $50K" name="budget" value="25-50" />
                 <RadioInput label="$50K – $150K" name="budget" value="50-150" />
-                <RadioInput label="More than $150K" name="budget" value="150+" />
+                <RadioInput
+                  label="More than $150K"
+                  name="budget"
+                  value="150+"
+                />
               </div>
             </fieldset>
           </div>
@@ -93,9 +100,7 @@ function ContactDetails() {
           Email Me
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-          {[
-            ['Me', 'contact@iliashaddad.com'],
-          ].map(([label, email]) => (
+          {[['Me', 'contact@iliashaddad.com']].map(([label, email]) => (
             <div key={email}>
               <dt className="font-semibold text-neutral-950">{label}</dt>
               <dd>
@@ -122,15 +127,15 @@ function ContactDetails() {
 }
 
 export const metadata = {
-  title: 'Contact Us',
-  description: 'Let’s work together. We can’t wait to hear from you.',
+  title: 'Contact Me',
+  description: 'Let’s work together. I can’t wait to hear from you.',
 }
 
 export default function Contact() {
   return (
     <>
       <PageIntro eyebrow="Contact me" title="Let’s work together">
-        <p>We can’t wait to hear from you.</p>
+        <p>I can’t wait to hear from you.</p>
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">

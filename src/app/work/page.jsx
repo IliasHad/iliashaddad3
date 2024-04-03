@@ -28,7 +28,7 @@ function Projects({ projects }) {
                     <Image
                       src={project.logo}
                       alt={project.client}
-                      className="h-12 w-16"
+                      className="h-12 w-16 object-contain"
                       width={50}
                       height={100}
                     />

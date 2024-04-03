@@ -7,7 +7,11 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import imageMe from '@/images/ilias-image.jpg'
-import { getAllClientsProjects, getAllPublished, getAllSideProjects } from '../../lib/notion'
+import {
+  getAllClientsProjects,
+  getAllPublished,
+  getAllSideProjects,
+} from '../../lib/notion'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import BuiltInAfricaImage from '@/images/built-in-africa.jpg'
 import StoreTaskerImage from '@/images/storetasker.png'
@@ -23,7 +27,7 @@ function Featured() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            Featured In
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -61,18 +65,20 @@ function Projects({ projects }) {
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {projects.map((project) => (
             <FadeIn key={`/work/${project.slug}`} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+              <Link
+                href={`/work/${project.slug}`}
+                className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
+              >
                 <h3>
-                  <Link href={`/work/${project.slug}`}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={project.logo}
-                      alt={project.client}
-                      className="h-12 w-16"
-                      width={50}
-                      height={100}
-                    />
-                  </Link>
+                  <span className="absolute inset-0 rounded-3xl" />
+                  <Image
+                    src={project.logo}
+                    alt={project.client}
+                    className="h-24 w-24 object-contain"
+                    width={50}
+                    height={100}
+                    objectFit="contain"
+                  />
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time
@@ -92,7 +98,7 @@ function Projects({ projects }) {
                 <p className="mt-4 text-base text-neutral-600">
                   {project.description}
                 </p>
-              </article>
+              </Link>
             </FadeIn>
           ))}
         </FadeInStagger>
@@ -108,26 +114,29 @@ function SideProjects({ sideProjects }) {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-        I like to stay busy and always have a project in the works. Take a look at some of the my side projects.
-
+          I like to stay busy and always have a project in the works. Take a
+          look at some of the my side projects.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {sideProjects.map((project) => (
             <FadeIn key={`/work/${project.slug}`} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+              <Link
+                href={`/work/${project.slug}`}
+                className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
+              >
                 <h3>
-                  <Link href={`/work/${project.slug}`}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={project.logo}
-                      alt={project.client}
-                      className="h-12 w-16"
-                      width={50}
-                      height={100}
-                    />
-                  </Link>
+                  <span className="absolute inset-0 rounded-3xl" />
+                  <Image
+                    src={project.featuredImage}
+                    alt={project.title}
+                    className="h-72 w-full overflow-hidden rounded-xl bg-neutral-100"
+                    width={400}
+                    height={200}
+                    objectFit="contain"
+                    quality={100}
+                  />
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time
@@ -147,7 +156,7 @@ function SideProjects({ sideProjects }) {
                 <p className="mt-4 text-base text-neutral-600">
                   {project.description}
                 </p>
-              </article>
+              </Link>
             </FadeIn>
           ))}
         </FadeInStagger>
@@ -155,8 +164,7 @@ function SideProjects({ sideProjects }) {
     </>
   )
 }
-async function Articles() {
-  const articles = await getAllPublished(4)
+async function Articles({ articles }) {
   return (
     <>
       <SectionIntro title="My articles" className="mt-24 sm:mt-32 lg:mt-40">
@@ -169,19 +177,19 @@ async function Articles() {
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {articles.map((article) => (
             <FadeIn key={article.slug} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <Link href={`/blog/${article.slug}`}>
-                  <Image
-                    src={article.featuredImage}
-                    alt={article.title}
-                    objectFit="cover"
-                    quality={100}
-                    layout="responsive"
-                    height={400}
-                    width={500}
-                    className="rounded"
-                  />
-                </Link>
+              <Link
+                href={`/blog/${article.slug}`}
+                className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
+              >
+                <Image
+                  src={article.featuredImage}
+                  alt={article.title}
+                  objectFit="cover"
+                  quality={100}
+                  layout="responsive"
+                  height={400}
+                  width={500}
+                />
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time dateTime={article.year} className="font-semibold">
                     {article.date.split('-')[0]}
@@ -197,7 +205,7 @@ async function Articles() {
                 <p className="mt-4 text-base text-neutral-600">
                   {article.description}
                 </p>
-              </article>
+              </Link>
             </FadeIn>
           ))}
           <FadeIn className="flex">
@@ -261,12 +269,14 @@ function Services() {
 
 export const metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
+    'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
 }
 
 export default async function Home() {
   const projects = await getAllClientsProjects()
-  const sideProjects = await getAllSideProjects();
+  const sideProjects = await getAllSideProjects()
+  const articles = await getAllPublished(4)
+
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
@@ -294,13 +304,13 @@ export default async function Home() {
       <Featured />
       <Projects projects={projects} />
 
-      <Articles />
+      <Articles articles={articles} />
 
       <TestimonialsSlider />
 
       <Services />
 
-      <SideProjects sideProjects={sideProjects } />
+      <SideProjects sideProjects={sideProjects} />
 
       <ContactSection />
     </>

@@ -16,7 +16,7 @@ export const metadata = {
 }
 
 export default async function Blog() {
-  const articles = await  getAllPublished()
+  const articles = await getAllPublished()
   const featuredArticle = await getRecentFeaturedPost()
 
   return (
@@ -42,6 +42,10 @@ export default async function Blog() {
                           <time dateTime={featuredArticle.date}>
                             {formatDate(featuredArticle.date)}
                           </time>
+                         {" "} /
+                          <span className="ml-2 text-sm font-bold lg:static">
+                            Featured Article
+                          </span>
                         </dd>
                         <dt className="sr-only">Author</dt>
                         <dd className="mt-6 flex gap-x-4"></dd>
@@ -86,7 +90,7 @@ export default async function Blog() {
             .filter((article) => article.slug !== featuredArticle.slug)
             .map((article) => (
               <FadeIn key={article.href}>
-                <article className='h-full'>
+                <article className="h-full">
                   <Border className="pt-16">
                     <div className="relative lg:-mx-4 lg:flex lg:justify-end">
                       <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
@@ -95,27 +99,23 @@ export default async function Blog() {
                             {article.title}
                           </Link>
                         </h2>
-                        <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
+
+                        <dl className="flex flex-col gap-2 lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
+                          <Image
+                            src={article.featuredImage}
+                            alt={article.title}
+                            objectFit="cover"
+                            quality={100}
+                            layout="responsive"
+                            height={150}
+                            width={500}
+                            className="max-h-60 rounded-md object-contain"
+                          />
                           <dt className="sr-only">Published</dt>
                           <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
                             <time dateTime={article.date}>
                               {formatDate(article.date)}
                             </time>
-                          </dd>
-                          <dt className="sr-only">Author</dt>
-                          <dd className="mt-6 flex gap-x-4">
-                            <div className="h-full overflow-hidden w-full  rounded-xl bg-neutral-100">
-                              <Image
-                                src={article.featuredImage}
-                                alt={article.title}
-                                objectFit="cover"
-                                quality={100}
-                                layout="responsive"
-                                height={400}
-                                width={500}
-                                className="rounded"
-                              />
-                            </div>
                           </dd>
                         </dl>
                         <p
