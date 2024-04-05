@@ -124,7 +124,7 @@ export async function insertNewWorkEnquiry(formData) {
     }
   } catch (error) {
     return {
-      error: 'We have received your message but there was an error saving it.',
+      error: 'There was an error sending your message. Please try again.',
     }
   }
 }
