@@ -2,12 +2,27 @@ import clsx from 'clsx'
 
 import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
+import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
+import Image from 'next/image'
 
 export const MDXComponents = {
   Blockquote({ className, ...props }) {
     return <Blockquote className={clsx('my-32', className)} {...props} />
+  },
+  img: function Img({ className, ...props }) {
+    return (
+      <Image
+        layout="responsive"
+        width={500}
+        alt=""
+        src={props.src}
+        className={clsx('w-full', className)}
+        {...props}
+        height={400}
+      />
+    )
   },
   StatList({ className, ...props }) {
     return (
