@@ -6,10 +6,7 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     domains: ['s3.us-west-2.amazonaws.com', 'iliashaddad.nyc3.digitaloceanspaces.com', 'iliashaddad.com', 'uc4a401a2eb5216fa6fb0e3bcab9.previews.dropboxusercontent.com','ucd0eed9a2ee1c5269cbb8c78206.previews.dropboxusercontent.com'],
   },
-  experimental: {
-    serverComponentsExternalPackages: ['airtablei'],
-  },
-
+  swcMinify: false,
 }
 
 
