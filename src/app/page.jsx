@@ -270,6 +270,13 @@ function Services() {
 export const metadata = {
   description:
     'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
+    openGraph: {
+      images: ['/images/featured-image.jpg', ...previousImages],
+      title: 'Ilias Haddad',
+      description:
+        'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
+      card: 'summary_large_image',
+    },
 }
 
 export default async function Home() {
