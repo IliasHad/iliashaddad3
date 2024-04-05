@@ -2,32 +2,12 @@ import clsx from 'clsx'
 
 import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
-import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
 
 export const MDXComponents = {
   Blockquote({ className, ...props }) {
     return <Blockquote className={clsx('my-32', className)} {...props} />
-  },
-  img: function Img({ className, ...props }) {
-    return (
-      <div
-        className={clsx(
-          'group isolate my-10 overflow-hidden rounded-4xl bg-neutral-100 max-sm:-mx-6',
-          className
-        )}
-      >
-        <GrayscaleTransitionImage
-          quality={90}
-          className="w-full object-cover"
-          sizes="(min-width: 1216px) 76rem, 100vw"
-          priority
-          src={props.src}
-         fill={true}
-        />
-      </div>
-    )
   },
   StatList({ className, ...props }) {
     return (
