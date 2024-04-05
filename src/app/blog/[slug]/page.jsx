@@ -13,11 +13,11 @@ import ReactMarkdown from 'react-markdown'
 import { TagList, TagListItem } from '@/components/TagList'
 import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 
-export default async function Page({ params, searchParams }) {
+export default async function Page({ params }) {
   const article = await getSingleBlogPostBySlug(params.slug)
   return (
     <>
-      <Container as="article" className="mt-24 sm:mt-32 lg:mt-40 mb-12">
+      <Container as="article" className="mb-12 mt-24 sm:mt-32 lg:mt-40">
         <FadeIn>
           <header className="mx-auto flex max-w-5xl flex-col text-center">
             <h1 className="mt-6 font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl">
@@ -33,23 +33,22 @@ export default async function Page({ params, searchParams }) {
               by Ilias Haddad
             </p>
           </header>
-          <div className="border-y my-4 border-neutral-200 bg-neutral-100">
-              <div className="-my-px mx-auto w-full max-w-[76rem] bg-neutral-200">
-                <GrayscaleTransitionImage
-                  quality={90}
-                  className="w-full object-cover"
-                  sizes="(min-width: 1216px) 76rem, 100vw"
-                  priority
-                  src={article.metadata.featuredImage}
-                  width={500}
-                  height={400}
-                />
-              </div>
+          <div className="my-4 border-y border-neutral-200 bg-neutral-100">
+            <div className="-my-px mx-auto w-full max-w-[76rem] bg-neutral-200">
+              <GrayscaleTransitionImage
+                quality={90}
+                className="w-full object-cover"
+                sizes="(min-width: 1216px) 76rem, 100vw"
+                priority
+                src={article.metadata.featuredImage}
+                width={500}
+                height={400}
+              />
             </div>
+          </div>
         </FadeIn>
 
         <FadeIn>
-          
           <div className="[&>*]:mx-auto [&>*]:max-w-3xl [&>:first-child]:!mt-0 [&>:last-child]:!mb-0">
             <div className="typography">
               <ReactMarkdown
@@ -69,7 +68,6 @@ export default async function Page({ params, searchParams }) {
           </div>
         </FadeIn>
       </Container>
-
       {article.relatedPosts > 0 && (
         <PageLinks
           className="mt-24 sm:mt-32 lg:mt-40"
@@ -77,7 +75,6 @@ export default async function Page({ params, searchParams }) {
           pages={article.relatedPosts}
         />
       )}
-
       <ContactSection />
     </>
   )
@@ -96,7 +93,7 @@ export async function generateStaticParams() {
 // Set the title of the page to be the post title, note that we no longer use
 // e.g. next/head in app dir, and this can be async just like the server
 // component
-export async function generateMetadata({ params: { slug} }) {
+export async function generateMetadata({ params: { slug } }) {
   const {
     metadata: { title },
   } = await getSingleBlogPostBySlug(slug)
