@@ -1,9 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
+import { insertNewContact } from '@/app/lib/newsletter'
+import { useFormState } from 'react-dom'
 
 const navigation = [
   {
@@ -60,20 +63,36 @@ function ArrowIcon(props) {
     </svg>
   )
 }
-
+const initialState = {
+  email: '',
+}
 function NewsletterForm() {
+  const [state, action] = useFormState(insertNewContact, initialState)
   return (
-    <form className="max-w-sm">
+    <form className="max-w-sm" action={action}>
       <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
         Sign up for my newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
         Subscribe to receive new articles and updates directly in your inbox.
       </p>
+      {state.success && (
+        <div className="rounded-2xl mt-2 bg-neutral-100 p-4 text-neutral-950">
+          <p>{state.success}</p>
+        </div>
+      )}
+      {state.error && (
+        <div className="rounded-2xl mt-2 bg-red-100 p-4 text-red-950">
+          <p>{state.error}</p>
+        </div>
+      )}
+
       <div className="relative mt-6">
         <input
           type="email"
+          name="email"
           placeholder="Email address"
+          onChange={(e) => (state[e.target.name] = e.target.value)}
           autoComplete="email"
           aria-label="Email address"
           className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"
@@ -104,9 +123,9 @@ export function Footer() {
         </div>
         <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
           <Link href="/" aria-label="Home">
-            <Link className="flex items-center gap-x-2" href='/'>
+            <Link className="flex items-center gap-x-2" href="/">
               Ilias Haddad
-              </Link>
+            </Link>
           </Link>
           <p className="text-sm text-neutral-700">
             © Ilias Haddad {new Date().getFullYear()}

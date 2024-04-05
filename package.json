@@ -13,6 +13,7 @@
     "@babel/core": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@getbrevo/brevo": "^2.0.0-beta.4",
     "@headlessui/react": "^1.7.16",
     "@leafac/rehype-shiki": "^2.2.1",
     "@mdx-js/loader": "^2.3.0",
