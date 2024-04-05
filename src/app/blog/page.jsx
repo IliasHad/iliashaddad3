@@ -23,7 +23,7 @@ export default async function Blog() {
     <>
       <PageIntro eyebrow="Blog" title="My Articles">
         <p>
-          a aaa I like to share my knowledge with others. Take a look at some of
+         I like to share my knowledge with others. Take a look at some of
           technical articles and behind the scene of my side project
         </p>
       </PageIntro>
