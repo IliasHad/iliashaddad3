@@ -271,7 +271,7 @@ export const metadata = {
   description:
     'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
     openGraph: {
-      images: ['/images/featured-image.jpg', ...previousImages],
+      images: ['/images/featured-image.jpg'],
       title: 'Ilias Haddad',
       description:
         'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
