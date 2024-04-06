@@ -2,11 +2,9 @@ import clsx from 'clsx'
 
 import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
-import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
 import Image from 'next/image'
-import Highlight, { defaultProps } from 'prism-react-renderer'
 
 export const MDXComponents = {
   Blockquote({ className, ...props }) {
