@@ -49,8 +49,8 @@ export default async function Page({ params }) {
         </FadeIn>
 
         <FadeIn>
-          <div className="[&>*]:mx-auto [&>*]:max-w-3xl [&>:first-child]:!mt-0 [&>:last-child]:!mb-0">
-            <div className="typography">
+          <div className="[&>*]:mx-auto [&>*]:max-w-3xl  [&>:first-child]:!mt-0 [&>:last-child]:!mb-0">
+            <div className="typography [&>pre]:bg-transparent">
               <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}
                 components={MDXComponents}

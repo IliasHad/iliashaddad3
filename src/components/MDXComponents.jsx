@@ -5,6 +5,8 @@ import { Border } from '@/components/Border'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
 import Image from 'next/image'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export const MDXComponents = {
   Blockquote({ className, ...props }) {
@@ -26,8 +28,12 @@ export const MDXComponents = {
       />
     )
   },
-  code({className, ...properties}) {
-    return <code className={className} {...properties} />
+  code({className, ...props}) {
+    console.log(props)
+    return (
+      <SyntaxHighlighter style={darcula} {...props} customStyle={{ width: '100%' }} >
+      </SyntaxHighlighter>
+    )
   },
   StatList({ className, ...props }) {
     return (
