@@ -1,7 +1,6 @@
 'use client'
 import {
   createContext,
-  useContext,
   useEffect,
   useId,
   useRef,
@@ -44,13 +43,12 @@ function Header({
   onToggle,
   toggleRef,
 }) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)
 
   return (
     <Container>
       <div className="flex items-center justify-between">
         <div>
-          <Link href="/" legacyBehavior>
+          <Link href="/" >
             <span
               className={clsx(
                 'relative h-10 w-10 flex-none cursor-pointer overflow-hidden  transition-all duration-200'
