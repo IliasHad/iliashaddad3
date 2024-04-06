@@ -24,6 +24,9 @@ export const MDXComponents = {
       />
     )
   },
+  code({className, ...properties}) {
+    return <code className={className} {...properties} />
+  },
   StatList({ className, ...props }) {
     return (
       <StatList className={clsx('my-32 !max-w-none', className)} {...props} />
