@@ -312,11 +312,12 @@ export default async function Home() {
       </Container>
 
       <Featured />
-      <Projects projects={projects} />
 
       <Articles articles={articles} />
 
       <TestimonialsSlider />
+
+      <Projects projects={projects} />
 
       <Services />
 
