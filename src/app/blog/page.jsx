@@ -31,7 +31,7 @@ export default async function Blog() {
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="space-y-24 lg:space-y-32">
           <FadeIn key={featuredArticle.href}>
-            <article>
+            <Link  href={`/blog/${featuredArticle.slug}`}>
               <Border className="pt-16">
                 <div className="grid grid-cols-2">
                   <div className="relative lg:-mx-4 lg:flex lg:justify-end">
@@ -70,7 +70,7 @@ export default async function Blog() {
                       </dl>
                     </div>
                   </div>
-                  <div className="h-72 w-full overflow-hidden rounded-xl bg-neutral-100">
+                  <div className="h-36 lg:h-72 w-full overflow-hidden rounded-xl bg-neutral-100">
                     <Image
                       src={featuredArticle.featuredImage}
                       alt={featuredArticle.title}
@@ -79,18 +79,18 @@ export default async function Blog() {
                       layout="responsive"
                       height={400}
                       width={500}
-                      className="rounded"
+                      className="rounded object-cover"
                     />
                   </div>
                 </div>
               </Border>
-            </article>
+            </Link>
           </FadeIn>
           {articles
             .filter((article) => article.slug !== featuredArticle.slug)
             .map((article) => (
               <FadeIn key={article.href}>
-                <article className="h-full">
+                <Link  href={`/blog/${article.slug}`}  className="h-full">
                   <Border className="pt-16">
                     <div className="relative lg:-mx-4 lg:flex lg:justify-end">
                       <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
@@ -107,9 +107,9 @@ export default async function Blog() {
                             objectFit="cover"
                             quality={100}
                             layout="responsive"
-                            height={150}
+                            height={200}
                             width={500}
-                            className="max-h-60 rounded-md object-contain"
+                            className="max-h-60 py-4 rounded-md object-contain"
                           />
                           <dt className="sr-only">Published</dt>
                           <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
@@ -134,7 +134,7 @@ export default async function Blog() {
                       </div>
                     </div>
                   </Border>
-                </article>
+                </Link>
               </FadeIn>
             ))}
         </div>

@@ -297,12 +297,12 @@ export default async function Home() {
               Passionate about mountain biking and exploration.
             </p>
           </div>
-          <FadeIn className="w-[33.75rem] flex-none lg:w-[35rem]">
+          <FadeIn className="w-full mt-4 flex-none lg:w-[35rem]">
             <Image
               src={imageMe}
-              sizes="(min-width: 1024px) 41rem, 31rem"
               className="justify-center rounded-2xl lg:justify-end"
-              alt="Laptop"
+              alt="Ilias Haddad"
+              layout="responsive"
             />
           </FadeIn>
         </div>
