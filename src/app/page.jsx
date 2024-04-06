@@ -13,7 +13,7 @@ import {
   getAllSideProjects,
 } from '../../lib/notion'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
-import BuiltInAfricaImage from '@/images/built-in-africa.jpg'
+import BuiltInAfricaImage from '@/images/built-in-africa.png'
 import StoreTaskerImage from '@/images/storetasker.png'
 
 const featured = [
@@ -39,7 +39,10 @@ function Featured() {
             {featured.map(([client, logo]) => (
               <li key={client}>
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized width={200} />
+                  <Image src={logo} alt={client} width={200} className={
+                    logo === BuiltInAfricaImage ? 'bg-white rounded-lg px-5' : ''
+                  }
+                  />
                 </FadeIn>
               </li>
             ))}
@@ -148,7 +151,7 @@ function SideProjects({ sideProjects }) {
                   <span className="text-neutral-300" aria-hidden="true">
                     /
                   </span>
-                  <span>Case study</span>
+                  <span>Side project</span>
                 </p>
                 <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
                   {project.title}

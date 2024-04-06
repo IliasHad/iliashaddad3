@@ -75,7 +75,7 @@ function NewsletterForm() {
         Sign up for my newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Subscribe to receive new articles and updates directly in your inbox.
+      Get exclusive access! Subscribe now to receive pre-released articles directly in your inbox.
       </p>
       {state.success && (
         <div className="rounded-2xl mt-2 bg-neutral-100 p-4 text-neutral-950">

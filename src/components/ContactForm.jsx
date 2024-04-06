@@ -53,7 +53,7 @@ export const ContactForm = ({ message }) => {
     <FadeIn className="lg:order-last">
       <form action={action} className="space-y-8">
         <h2 className="font-display text-base font-semibold text-neutral-950">
-          Work inquiries
+          Send me your project details
         </h2>
         {state.success && (
           <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-950">
