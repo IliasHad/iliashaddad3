@@ -15,7 +15,7 @@ export default async function Page({ params }) {
       <article className="mt-24 sm:mt-32 lg:mt-40">
         <header>
           <PageIntro
-            eyebrow="Side Project"
+            eyebrow="Case Study"
             title={project.metadata.title}
             centered
           >
