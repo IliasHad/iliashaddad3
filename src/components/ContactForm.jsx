@@ -1,9 +1,9 @@
 'use client'
 import { useId } from 'react'
-import { Button } from '@/components/Button'
 import { FadeIn } from '@/components/FadeIn'
 import { insertNewWorkEnquiry } from '@/app/lib/contact'
 import { useFormState } from 'react-dom'
+import { SubmitButton } from '@/components/SubmitButton'
 
 function TextInput({ label, ...props }) {
   let id = useId()
@@ -137,9 +137,8 @@ export const ContactForm = ({ message }) => {
             </fieldset>
           </div>
         </div>
-        <Button type="submit" className="mt-10">
-          Let’s work together
-        </Button>
+        <SubmitButton label="Let’s work together" />
+       
       </form>
     </FadeIn>
   )
