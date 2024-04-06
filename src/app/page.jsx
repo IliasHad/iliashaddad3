@@ -64,9 +64,9 @@ function Projects({ projects }) {
       <Container className="mt-16">
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {projects.map((project) => (
-            <FadeIn key={`/work/${project.slug}`} className="flex">
+            <FadeIn key={`/projects/${project.slug}`} className="flex">
               <Link
-                href={`/work/${project.slug}`}
+                href={`/projects/${project.slug}`}
                 className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
               >
                 <h3>
@@ -121,9 +121,9 @@ function SideProjects({ sideProjects }) {
       <Container className="mt-16">
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {sideProjects.map((project) => (
-            <FadeIn key={`/work/${project.slug}`} className="flex">
+            <FadeIn key={`/projects/${project.slug}`} className="flex">
               <Link
-                href={`/work/${project.slug}`}
+                href={`/projects/${project.slug}`}
                 className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
               >
                 <h3>

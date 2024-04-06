@@ -20,10 +20,10 @@ function Projects({ projects }) {
       <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {projects.map((project) => (
-            <FadeIn key={`/work/${project.slug}`} className="flex">
+            <FadeIn key={`/projects/${project.slug}`} className="flex">
               <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
                 <h3>
-                  <Link href={`/work/${project.slug}`}>
+                  <Link href={`/projects/${project.slug}`}>
                     <span className="absolute inset-0 rounded-3xl" />
                     <Image
                       src={project.logo}
