@@ -81,3 +81,19 @@ export default async function Page({ params }) {
     </>
   )
 }
+export async function generateMetadata({ params: { slug } }) {
+  const {
+    metadata: { title, description, featuredImage },
+  } = await getProjectBySlug(slug, 'sideProject')
+  return {
+    title,
+    description,
+    image: featuredImage,
+    openGraph: {
+      images: [featuredImage],
+      title,
+      description,
+      card: 'summary_large_image',
+    },
+  }
+}

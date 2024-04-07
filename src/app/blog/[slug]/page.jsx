@@ -95,9 +95,17 @@ export async function generateStaticParams() {
 // component
 export async function generateMetadata({ params: { slug } }) {
   const {
-    metadata: { title },
+    metadata: { title, description, featuredImage },
   } = await getSingleBlogPostBySlug(slug)
   return {
     title,
+    description,
+    image: featuredImage,
+    openGraph: {
+      images: [featuredImage],
+      title,
+      description,
+      card: 'summary_large_image',
+    },
   }
 }
