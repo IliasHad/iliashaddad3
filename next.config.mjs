@@ -8,7 +8,8 @@ const nextConfig = {
   },
   experimental: {
     serverMinification: false,
-},
+  },
+  trailingSlash: true,
 }
 
 
