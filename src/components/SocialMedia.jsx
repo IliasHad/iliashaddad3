@@ -72,7 +72,7 @@ export const socialMediaProfiles = [
   { title: 'GitHub', href: 'https://github.com/iliashad', icon: GitHubIcon },
   {
     title: 'Youtube',
-    href: 'https://www.youtube.com/@iliashaddad-shopifydevelop7093',
+    href: 'https://www.youtube.com/@iliashaddad_dev',
     icon: YoutubeIcon,
   },
 ]
