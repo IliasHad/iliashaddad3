@@ -14,7 +14,7 @@ export default async function sitemap() {
     lastModified,
   }))
   const sideProjectSlugs = sideProjects.map(({ slug, lastModified }) => ({
-    slug: `/project/${slug}`,
+    slug: `/projects/${slug}`,
     lastModified,
   }))
   const clientProjectSlugs = clientProjects.map(({ slug, lastModified }) => ({
@@ -22,7 +22,24 @@ export default async function sitemap() {
     lastModified,
   }))
 
-  const slugs = [...postSlugs, ...sideProjectSlugs, ...clientProjectSlugs]
+  const otherSlugs = [
+    { slug: '/about', lastModified: new Date().toISOString() },
+    { slug: '/contact', lastModified: new Date().toISOString() },
+    { slug: '/blog', lastModified: new Date().toISOString() },
+    {
+      slug: '/projects',
+      lastModified: new Date().toISOString(),
+    },
+    {
+      slug: '/side-projects',
+      lastModified: new Date().toISOString(),
+    },
+    {
+      slug: '/',
+      lastModified: new Date().toISOString(),
+    },
+  ]
+  const slugs = [...postSlugs, ...sideProjectSlugs, ...clientProjectSlugs, ...otherSlugs]
 
   return slugs.map(({ slug, lastModified }) => ({
     url: `https://iliashaddad.com${slug}`,
