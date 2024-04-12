@@ -11,6 +11,7 @@ import {
   getAllClientsProjects,
   getAllPublished,
   getAllSideProjects,
+  getAllTalks,
 } from '../../lib/notion'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import BuiltInAfricaImage from '@/images/built-in-africa.png'
@@ -39,9 +40,15 @@ function Featured() {
             {featured.map(([client, logo]) => (
               <li key={client}>
                 <FadeIn>
-                  <Image src={logo} alt={client} width={200} className={
-                    logo === BuiltInAfricaImage ? 'bg-white rounded-lg px-5' : ''
-                  }
+                  <Image
+                    src={logo}
+                    alt={client}
+                    width={200}
+                    className={
+                      logo === BuiltInAfricaImage
+                        ? 'rounded-lg bg-white px-5'
+                        : ''
+                    }
                   />
                 </FadeIn>
               </li>
@@ -100,6 +107,64 @@ function Projects({ projects }) {
                 </p>
                 <p className="mt-4 text-base text-neutral-600">
                   {project.description}
+                </p>
+              </Link>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
+      </Container>
+    </>
+  )
+}
+function Talks({ talks }) {
+  return (
+    <>
+      <SectionIntro
+        title="What I've been speaking about"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          I like to share my knowledge with others. Take a look at some of the
+          talks I have given.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {talks.map((talk) => (
+            <FadeIn key={`/projects/${talk.slug}`} className="flex">
+              <Link
+                href={`/projects/${talk.slug}`}
+                className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
+              >
+                <h3>
+                  <span className="absolute inset-0 rounded-3xl" />
+                  {talk.videoLink && (
+                    <iframe
+                      frameborder="0"
+                      allowfullscreen="1"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      className="flex lg:block w-full h-48 lg:h-72 object-cover rounded-xl bg-neutral-100"
+                      src= {talk.videoLink}
+                    ></iframe>
+                  )}
+                </h3>
+                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
+                  <time
+                    dateTime={new Date(talk.date).getFullYear()}
+                    className="font-semibold"
+                  >
+                    {new Date(talk.date).getFullYear()}
+                  </time>
+                  <span className="text-neutral-300" aria-hidden="true">
+                    /
+                  </span>
+                  <span>Talk</span>
+                </p>
+                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                  {talk.title}
+                </p>
+                <p className="mt-4 text-base text-neutral-600">
+                  {talk.description}
                 </p>
               </Link>
             </FadeIn>
@@ -273,20 +338,20 @@ function Services() {
 export const metadata = {
   description:
     'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
-    openGraph: {
-      images: ['/images/featured-image.jpg'],
-      title: 'Ilias Haddad',
-      description:
-        'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
-      card: 'summary_large_image',
-    },
+  openGraph: {
+    images: ['/images/featured-image.jpg'],
+    title: 'Ilias Haddad',
+    description:
+      'Experienced full-stack developer (4+ years). Shopify specialist. Passionate about mountain biking and exploration.',
+    card: 'summary_large_image',
+  },
 }
 
 export default async function Home() {
   const projects = await getAllClientsProjects()
-  const sideProjects = await getAllSideProjects()
   const articles = await getAllPublished(4)
-
+  const sideProjects = await getAllSideProjects()
+  const talks = await getAllTalks()
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
@@ -300,7 +365,7 @@ export default async function Home() {
               Passionate about mountain biking and exploration.
             </p>
           </div>
-          <FadeIn className="w-full mt-4 flex-none lg:w-[35rem]">
+          <FadeIn className="mt-4 w-full flex-none lg:w-[35rem]">
             <Image
               src={imageMe}
               className="justify-center rounded-2xl lg:justify-end"
@@ -322,6 +387,7 @@ export default async function Home() {
       <Services />
 
       <SideProjects sideProjects={sideProjects} />
+      <Talks talks={talks} />
 
       <ContactSection />
     </>
