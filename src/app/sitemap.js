@@ -14,11 +14,11 @@ export default async function sitemap() {
     lastModified,
   }))
   const sideProjectSlugs = sideProjects.map(({ slug, lastModified }) => ({
-    slug: `/projects/${slug}`,
+    slug: `/side-projects/${slug}`,
     lastModified,
   }))
   const clientProjectSlugs = clientProjects.map(({ slug, lastModified }) => ({
-    slug: `/side-projects/${slug}`,
+    slug: `/projects/${slug}`,
     lastModified,
   }))
 
