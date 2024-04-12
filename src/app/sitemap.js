@@ -35,7 +35,7 @@ export default async function sitemap() {
       lastModified: new Date().toISOString(),
     },
     {
-      slug: '/',
+      slug: '',
       lastModified: new Date().toISOString(),
     },
   ]
