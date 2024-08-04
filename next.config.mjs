@@ -18,7 +18,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/project/product-hunt-launch-video-gallery/?type=sideProject',
+        source: '/project/product-hunt-launch-video-gallery',
         destination: '/side-projects/product-hunt-launch-video-gallery',
         permanent: true,
       },
@@ -65,7 +65,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/project/shopify-store-built-with-gatsby-js?type=sideProject',
+        source: '/project/shopify-store-built-with-gatsby-js',
         destination: '/side-projects/shopify-store-built-with-gatsby-js',
         permanent: true,
       },
