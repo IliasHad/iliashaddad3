@@ -133,7 +133,7 @@ function Talks({ talks }) {
           {talks.map((talk) => (
             <FadeIn key={`/projects/${talk.slug}`} className="flex">
               <Link
-                href={`/projects/${talk.slug}`}
+                href={talk.videoLink}
                 className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8"
               >
                 <h3>
