@@ -66,6 +66,11 @@ const nextConfig = {
         source: "/tag/shopify-dev",
         destination: "/blog",
         permanent: true,
+      },
+      {
+        source: "/project/yalla-lets-code-podcast",
+        destination: "/side-projects/yalla-lets-code-podcast",
+        permanent: true,
       }
     ]
   },
