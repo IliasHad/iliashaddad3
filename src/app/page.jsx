@@ -16,6 +16,7 @@ import {
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import BuiltInAfricaImage from '@/images/built-in-africa.png'
 import StoreTaskerImage from '@/images/storetasker.png'
+import { Calendar } from '@/components/Calendar'
 
 const featured = [
   ['Built in Africa', BuiltInAfricaImage],
@@ -143,8 +144,8 @@ function Talks({ talks }) {
                       frameborder="0"
                       allowfullscreen="1"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      className="flex lg:block w-full h-48 lg:h-72 object-cover rounded-xl bg-neutral-100"
-                      src= {talk.videoLink}
+                      className="flex h-48 w-full rounded-xl bg-neutral-100 object-cover lg:block lg:h-72"
+                      src={talk.videoLink}
                     ></iframe>
                   )}
                 </h3>
@@ -390,6 +391,18 @@ export default async function Home() {
       <Talks talks={talks} />
 
       <ContactSection />
+      <SectionIntro
+        title="Book a meeting with me"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          Let&apos;s talk about your project, your idea, or anything you want to
+          discuss.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <Calendar />
+      </Container>
     </>
   )
 }
