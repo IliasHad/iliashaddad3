@@ -3,18 +3,40 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    domains: [
-      's3.us-west-2.amazonaws.com',
-      'iliashaddad.nyc3.digitaloceanspaces.com',
-      'iliashaddad.com',
-      'uc4a401a2eb5216fa6fb0e3bcab9.previews.dropboxusercontent.com',
-      'ucd0eed9a2ee1c5269cbb8c78206.previews.dropboxusercontent.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3.us-west-2.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ucd0eed9a2ee1c5269cbb8c78206.previews.dropboxusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'uc4a401a2eb5216fa6fb0e3bcab9.previews.dropboxusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'iliashaddad.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'iliashaddad.nyc3.digitaloceanspaces.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
-  experimental: {
-    serverMinification: false,
-  },
-  trailingSlash: false,
+  trailingSlash: true,
   async redirects() {
     return [
       {

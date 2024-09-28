@@ -40,6 +40,7 @@
     "nextjs-toploader": "^1.6.11",
     "nodemailer": "^6.9.13",
     "notion-to-md": "^3.1.1",
+    "prism-react-renderer": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",

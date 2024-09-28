@@ -5,13 +5,13 @@ import { Border } from '@/components/Border'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
 import Image from 'next/image'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeBlock } from '@/components/CodeBlock'
 
 export const MDXComponents = {
   Blockquote({ className, ...props }) {
     return <Blockquote className={clsx('my-32', className)} {...props} />
   },
+  code: CodeBlock,
   img: function Img({ className, ...props }) {
     if (props.src.startsWith('data')) {
       return null
@@ -27,9 +27,6 @@ export const MDXComponents = {
         height={400}
       />
     )
-  },
-  code({ className, ...props }) {
-    return <code className={clsx('bg-black w-full text-white', className)} {...props} />
   },
   StatList({ className, ...props }) {
     return (

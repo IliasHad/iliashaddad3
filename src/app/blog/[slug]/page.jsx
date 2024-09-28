@@ -12,6 +12,7 @@ import rehypeRaw from 'rehype-raw'
 import ReactMarkdown from 'react-markdown'
 import { TagList, TagListItem } from '@/components/TagList'
 import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
+import clsx from 'clsx'
 
 export default async function Page({ params }) {
   const article = await getSingleBlogPostBySlug(params.slug)
@@ -50,7 +51,16 @@ export default async function Page({ params }) {
 
         <FadeIn>
           <div className="[&>*]:mx-auto [&>*]:max-w-3xl  [&>:first-child]:!mt-0 [&>:last-child]:!mb-0">
-            <div className="typography [&>pre]:bg-transparent">
+            <div
+              className={clsx(
+                'prose prose-slate dark:prose-invert dark:text-whit max-w-none',
+                'dark:prose-hr:border-slate-800',
+                'prose-h1:font-semibold dark:prose-h1:text-white',
+                // selection style
+                'selection:bg-slate-200 dark:selection:bg-slate-700 selection:text-slate-900 dark:selection:text-slate-100',
+                'prose-code:selection:bg-slate-200 dark:prose-code:selection:bg-slate-700',
+              )}
+            >
               <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}
                 components={MDXComponents}
