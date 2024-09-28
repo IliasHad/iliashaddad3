@@ -42,7 +42,7 @@ export default async function sitemap() {
   const slugs = [...postSlugs, ...sideProjectSlugs, ...clientProjectSlugs, ...otherSlugs]
 
   return slugs.map(({ slug, lastModified }) => ({
-    url: `https://iliashaddad.com${slug}`,
+    url: `https://iliashaddad.com${slug}/`,
     lastModified,
     changeFrequency: 'weekly',
     priority: 1,
