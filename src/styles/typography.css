@@ -15,14 +15,27 @@
   :where(& > *) {
     @apply mt-6 mb-6;
   }
-
+  :where(.prose > *) {
+    margin-top: theme(spacing.6);
+    margin-bottom: theme(spacing.6);
+  }
   /* Headings */
   :where(h2) {
-    @apply font-display font-semibold text-2xl leading-[1.5] mt-16;
+    font-weight: theme(fontWeight.semibold);
+    font-family: theme(fontFamily.display);
+    font-variation-settings: theme(fontFamily.display[1].fontVariationSettings);
+    font-size: theme(fontSize.2xl);
+    line-height: theme(fontSize.2xl[1].lineHeight);
+    margin-top: theme(spacing.16);
   }
 
   :where(h3) {
-    @apply font-display font-semibold text-xl leading-[1.5] mt-10;
+    font-weight: theme(fontWeight.semibold);
+    font-family: theme(fontFamily.display);
+    font-variation-settings: theme(fontFamily.display[1].fontVariationSettings);
+    font-size: theme(fontSize.xl);
+    line-height: theme(fontSize.xl[1].lineHeight);
+    margin-top: theme(spacing.10);
   }
 
   :where(h2 + h3) {
@@ -75,39 +88,53 @@
       @apply p-4;
     }
   }
-
   /* <hr> */
   :where(hr) {
-    @apply border-neutral-950/10 my-24;
+    border-color: theme(colors.neutral.950 / 0.1);
+    margin-top: theme(spacing.24);
+    margin-bottom: theme(spacing.24);
   }
 
   /* Inline text */
   :where(a) {
-    @apply underline underline-offset-1 font-semibold;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    text-decoration-skip-ink: none;
+    font-weight: theme(fontWeight.semibold);
   }
 
   :where(strong) {
-    @apply font-semibold;
+    font-weight: theme(fontWeight.semibold);
   }
 
+  :where(code:not(pre code)) {
+    font-size: calc(18 / 20 * 1em);
+    font-weight: theme(fontWeight.semibold);
+    &::before,
+    &::after {
+      content: '`';
+    }
+  }
 
   :where(h2 code, h3 code) {
-    @apply font-bold;
+    font-weight: theme(fontWeight.bold);
   }
 
   /* Figures */
   :where(figure) {
-    @apply mt-32 mb-32;
+    margin-top: theme(spacing.32);
+    margin-bottom: theme(spacing.32);
   }
 
   /* Spacing overrides */
   :where(.prose:first-child > :first-child),
   :where(li > :first-child) {
-    @apply mt-0 !important;
+    margin-top: 0 !important;
   }
 
   :where(.prose:last-child > :last-child),
   :where(li > :last-child) {
-    @apply mb-0 !important;
+    margin-bottom: 0 !important;
   }
 }
