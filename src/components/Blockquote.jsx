@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import clsx from 'clsx'
 
 import { Border } from '@/components/Border'

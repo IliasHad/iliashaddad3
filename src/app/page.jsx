@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 
 import { ContactSection } from '@/components/ContactSection'
@@ -44,7 +44,10 @@ function Featured() {
                   <Image
                     src={logo}
                     alt={client}
-                    width={200}
+                    width={100}
+                    height={50}
+                    layout="fixed"
+                    objectFit="contain"
                     className={
                       logo === BuiltInAfricaImage
                         ? 'rounded-lg bg-white px-5'

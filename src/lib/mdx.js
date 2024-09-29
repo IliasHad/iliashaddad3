@@ -12,11 +12,11 @@ async function loadEntries(directory, metaName) {
             ...metadata,
             metadata,
             href: `/${directory}/${filename.replace(/\/page\.mdx$/, '')}`,
-          }
+          };
         },
       ),
     )
-  ).sort((a, b) => b.date.localeCompare(a.date))
+  ).sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function loadArticles() {

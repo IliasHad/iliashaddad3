@@ -25,6 +25,8 @@ export const MDXComponents = {
         className={clsx('w-full', className)}
         {...props}
         height={400}
+        quality={100}
+        objectFit='cover'
       />
     )
   },

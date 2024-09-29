@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
@@ -33,8 +33,8 @@ export function Testimonial({ children, client, className }) {
                 quality={100}
                 layout="fixed"
                 height={150}
-                width={200}
-                imgStyle={{ objectFit: 'cover' }}
+                width={50}
+                imgStyle={{ objectFit: 'contain' }}
               />
             </figcaption>
           </figure>

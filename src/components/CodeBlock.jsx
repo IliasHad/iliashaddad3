@@ -26,5 +26,5 @@ export const CodeBlock = ({ children, className, node, ...rest }) => {
     <code {...rest} className={className}>
       {children}
     </code>
-  )
+  );
 }

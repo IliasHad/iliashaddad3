@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { Transition } from '@headlessui/react'
 import Aziz from '@/images/clients/aziz-tarafder.jpeg'
 import Yassine from '@/images/clients/yassine.png'
@@ -125,13 +125,16 @@ export default function TestimonialsSlider() {
                     leaveFrom="opacity-100 rotate-0"
                     leaveTo="opacity-0"
                   >
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-5 justify-center items-center">
                       <Image
-                        className="top[0] relative left-1/2 -translate-x-1/2 rounded-full"
+                        className="rounded-full"
                         src={testimonial.image}
-                        width={56}
-                        height={56}
+                        width={50}
+                        height={50}
+                        layout='fixed'
+                        objectPosition={`center`}
                         alt={testimonial.fullName}
+                        imgStyle={{ objectFit: 'contain' }}
                       />
                       <h5
                         key={index}

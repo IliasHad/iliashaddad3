@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import clsx from 'clsx'
 
 const shapes = [
@@ -40,6 +40,7 @@ export function StylizedImage({ shape = 0, className, ...props }) {
                 className="w-full bg-neutral-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
                 {...props}
+                layout='responsive'
               />
             </foreignObject>
           </g>
