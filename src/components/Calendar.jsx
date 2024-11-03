@@ -1,6 +1,8 @@
-"use client"
-import Cal, { getCalApi } from '@calcom/embed-react'
+'use client'
+import { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
+import { Button } from '@/components/Button'
+
 export const Calendar = () => {
   useEffect(() => {
     ;(async function () {
@@ -13,11 +15,11 @@ export const Calendar = () => {
     })()
   }, [])
   return (
-    <Cal
-      namespace="30min"
-      calLink="iliashadad/30min"
-      style={{ width: '100%', height: '100%', overflow: 'scroll' }}
-      config={{ layout: 'month_view' }}
-    />
+    <Button
+      data-cal-link="iliashadad/30min"
+      data-cal-config='{"theme":"dark"}'
+    >
+      Book a meeting
+    </Button>
   )
 }

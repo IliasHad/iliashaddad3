@@ -12,6 +12,7 @@ import {
   getAllPublished,
   getAllSideProjects,
   getAllTalks,
+  getFeaturedPosts,
 } from '../../lib/notion'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import BuiltInAfricaImage from '@/images/built-in-africa.png'
@@ -353,7 +354,7 @@ export const metadata = {
 
 export default async function Home() {
   const projects = await getAllClientsProjects()
-  const articles = await getAllPublished(4)
+  const articles = await getFeaturedPosts()
   const sideProjects = await getAllSideProjects()
   const talks = await getAllTalks()
   return (

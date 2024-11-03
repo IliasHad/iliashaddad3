@@ -3,6 +3,7 @@ import PlausibleProvider from 'next-plausible'
 import NextTopLoader from 'nextjs-toploader'
 
 import '@/styles/tailwind.css'
+import FloatingCalendar from '@/components/FloatingCalendar'
 
 export const metadata = {
   title: {
@@ -29,6 +30,7 @@ export default function Layout({ children }) {
             />
             {children}
           </RootLayout>
+          <FloatingCalendar />
         </body>
       </PlausibleProvider>
     </html>
