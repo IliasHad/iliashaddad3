@@ -107,6 +107,7 @@ export async function insertNewWorkEnquiry(formData) {
             id: record.id,
             fields: {
               Status: 'Sent',
+              'Added At': new Date().toISOString(),
             },
           },
         ],
@@ -123,6 +124,7 @@ export async function insertNewWorkEnquiry(formData) {
       success: 'We have received your message and will get back to you soon.',
     }
   } catch (error) {
+    console.error(error)
     return {
       error: 'There was an error sending your message. Please try again.',
     }

@@ -47,7 +47,7 @@ const initialState = {
   phone: '',
   message: '',
 }
-export const ContactForm = ({ message }) => {
+export const ContactForm = () => {
   const [state, action] = useFormState(insertNewWorkEnquiry, initialState)
   return (
     <FadeIn className="lg:order-last">
