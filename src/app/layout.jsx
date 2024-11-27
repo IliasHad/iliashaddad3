@@ -30,7 +30,6 @@ export default function Layout({ children }) {
             />
             {children}
           </RootLayout>
-          <FloatingCalendar />
         </body>
       </PlausibleProvider>
     </html>
