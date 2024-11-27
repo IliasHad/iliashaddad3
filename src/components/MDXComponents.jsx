@@ -18,15 +18,13 @@ export const MDXComponents = {
     }
     return (
       <Image
-        layout="responsive"
-        width={500}
-        alt=""
+        height={200}
+        width={400}
+        alt={props.alt}
         src={props.src}
-        className={clsx('w-full', className)}
-        {...props}
-        height={400}
         quality={100}
-        objectFit='cover'
+        objectFit="contain"
+        className="mx-auto"
       />
     )
   },

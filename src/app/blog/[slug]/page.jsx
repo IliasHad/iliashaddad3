@@ -53,12 +53,11 @@ export default async function Page({ params }) {
           <div className="[&>*]:mx-auto [&>*]:max-w-3xl  [&>:first-child]:!mt-0 [&>:last-child]:!mb-0">
             <div
               className={clsx(
-                'prose prose-slate dark:prose-invert dark:text-whit max-w-none',
-                'dark:prose-hr:border-slate-800',
+                'prose prose-sm prose-slate dark:prose-invert max-w-none',
+                'dark:prose-hr:border-slate-800 prose-pre:text-sm dark:prose-pre:text-sm prose-img:h-96',
                 'prose-h1:font-semibold dark:prose-h1:text-white',
-                // selection style
-                'selection:bg-slate-200 dark:selection:bg-slate-700 selection:text-slate-900 dark:selection:text-slate-100',
-                'prose-code:selection:bg-slate-200 dark:prose-code:selection:bg-slate-700',
+                'selection:bg-slate-200 selection:text-slate-900 dark:selection:bg-slate-700 dark:selection:text-slate-100',
+                'prose-code:selection:bg-slate-200 dark:prose-code:selection:bg-slate-700'
               )}
             >
               <ReactMarkdown

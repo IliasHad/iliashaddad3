@@ -11,7 +11,7 @@ export const CodeBlock = ({ children, className, node, ...rest }) => {
       language={match[1]}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
+        <pre className={clsx(className, 'text-sm')} style={style}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
@@ -26,5 +26,5 @@ export const CodeBlock = ({ children, className, node, ...rest }) => {
     <code {...rest} className={className}>
       {children}
     </code>
-  );
+  )
 }
