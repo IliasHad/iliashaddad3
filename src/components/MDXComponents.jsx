@@ -18,8 +18,8 @@ export const MDXComponents = {
     }
     return (
       <Image
-        height={200}
-        width={400}
+        height={400}
+        width={500}
         alt={props.alt}
         src={props.src}
         quality={100}
