@@ -16,6 +16,15 @@ export const MDXComponents = {
     if (props.src.startsWith('data')) {
       return null
     }
+    if(props.src.includes('.gif')){
+      return (
+        <img
+          alt={props.alt}
+          src={props.src}
+          className={clsx('mx-auto', className)}
+        />
+      )
+    }
     return (
       <Image
         height={400}

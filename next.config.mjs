@@ -33,6 +33,12 @@ const nextConfig = {
         hostname: 'iliashaddad.nyc3.digitaloceanspaces.com',
         port: '',
         pathname: '/**',
+      }, 
+      {
+        hostname: 'iliashaddad.nyc3.cdn.digitaloceanspaces.com',
+        port: '',
+        pathname: '/**',
+        protocol: 'https',
       }
     ],
   },
